@@ -1,5 +1,5 @@
 body{
-    background-color:rgb(70, 170, 87);
+    background-color:rgb(182, 154, 94);
 }
 h1,p{
 color:black ;
@@ -16,7 +16,7 @@ font-size: 120%;}
     font-weight:bold;
     font-style:normal;
     font-size: 15px;
-    color: rgb(26, 98, 98);
+    color: rgb(102, 96, 121);
 
 }
 #movies{
@@ -24,7 +24,7 @@ font-size: 120%;}
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight:bold;
-    color: rgb(26, 98, 98);
+    color: rgb(102, 96, 121);
 
 }
 #fun{
