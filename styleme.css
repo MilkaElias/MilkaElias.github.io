@@ -1,0 +1,36 @@
+body{
+    background-color:rosybrown;
+}
+h1,p{
+color:black ;
+font-weight: bolder;
+font-size: 200%;
+}
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+}
+p{
+font-size: 120%;}
+#course,movies,fun{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-style:normal;
+    font-size: 15px;
+    color: rgb(26, 98, 98);
+
+}
+#movies{
+    font-style:normal;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    color: rgb(26, 98, 98);
+
+}
+#fun{
+    font-style:normal;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    color: rgb(26, 98, 98);  
+}
