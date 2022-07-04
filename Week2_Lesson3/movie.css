@@ -1,0 +1,117 @@
+body {
+    background-image:url("images/background.png");
+    font-size: 8pt;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+.banner {
+    background-image: url("images/bannerbg.png");
+    background-repeat: repeat-x;
+    text-align: center;
+}
+
+.banner img {
+    min-width: 50px;
+}
+
+#title {
+    font-size: 24pt;
+    font-weight: bold;
+    font-family: Tahoma, Verdana, sans-serif;
+    text-shadow: 3px 3px #999999;
+    text-align: center;
+}
+
+.content {
+    max-width: 800px;
+    min-height: fit-content;
+    border: 4px solid gray;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.rotten {
+    background-image: url("/images/rbg.png");
+    border-radius: 10px;
+    text-align: left;
+    max-height: 83px;
+    overflow: hidden;
+
+}
+
+#rating{
+    font-weight: bold;
+    font-size: 83px;
+    color: red;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 0px;
+}
+
+.user img {
+	padding-right: 5px;
+    float: left;
+}
+
+.review { 
+    background-color: #E8DC9B;
+    font-weight: bold;
+    font-size: 8pt;
+    border: 2px gray solid;
+    border-radius: 10px;
+    padding: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+} 
+
+.movie {
+    background-color: #A2B964;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    max-width: 250px;
+    float: right;
+
+}
+
+dt {
+    font-weight: bold;
+    padding-top: 10pt;
+    padding-left: 10px;
+}
+
+ul li {
+    list-style-type: none;
+    text-indent: 0%;
+}
+
+#page {
+    background-color: #A2B964;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 0px;
+    clear: both;
+}
+
+.userreview {
+    column-count: 2;
+    max-width: 550px;
+    column-width: 47px;
+    column-gap:5px;
+    column-rule: 2px;
+
+}
+
+.user {
+    font-style: italic;
+    text-align: left;
+   
+}
+
+.checkers {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    opacity: 50%;
+}
