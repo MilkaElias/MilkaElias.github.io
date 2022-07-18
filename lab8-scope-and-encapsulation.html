@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lab8 Scope and Encapsulation</title>
+    <script>
+      // --- Exercise 1 start ---
+      function buildArray(words) {
+        return words.split(" ");
+      }
+
+      Object.defineProperty(String.prototype, "filter", {
+        value: function (bannedWords) {
+          const givenWords = buildArray(this);
+          bannedWords.forEach((word) => {
+            const index = givenWords.indexOf(word);
+            if (index > -1) {
+              // only splice array when item is found
+              givenWords.splice(index, 1); // 2nd parameter means remove one item only
+            }
+          });
+          return givenWords.join(" ");
+        },
+      });
+      console.log("Printing out the result of string filter ... ");
+      console.log("This house is not nice".filter(["not"]));
+      // --- Exercise 1 end ---
+
+      // --- Exercise 2 start ---
+      function bubbleSort(arr) {
+        console.log("Before sorting --- ", arr);
+        for (var i = 0; i < arr.length; i++) {
+          // Last i elements are already in place
+          for (var j = 0; j < arr.length - i - 1; j++) {
+            // Checking if the item at present iteration
+            // is greater than the next iteration
+            if (arr[j] > arr[j + 1]) {
+              // If the condition is true then swap them
+              var temp = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+            }
+          }
+        }
+        // Print the sorted array
+        console.log("After bubble sort --- ",arr);
+      }
+
+      // This is an unsorted array
+      var arr1 = [45, 14, 6, 90, 28, 73, 55, 119];
+      var arr2 = [6,4,0, 3,-2,1]; // the example from the excerise pdf
+      console.log("Printing the array after sorting it using bubble sort ... ");
+      bubbleSort(arr1)
+      bubbleSort(arr2);
+      // --- Exercise 2 end ---
+
+
+
+      // --- Exercise 3 start ---
+      class Person {
+        constructor(name) {
+          this.name = name;
+        }
+
+        teach(subject) {
+          console.log(this.name + " is now teaching " + subject);
+        }
+      }
+
+      const person = {
+        setName: function (name) {
+          this.name = name;
+        },
+        teach: function (subject) {
+          console.log(this.name + " is now teaching " + subject);
+        },
+      };
+
+      console.log(
+        "Printing the result of Teacher object with constructor ... "
+      );
+      const teacherOne = new Person("David Spears");
+      teacherOne.teach("Enterprise Architecture.");
+
+      console.log(
+        "Printing the result of Teacher object with no constructor ... "
+      );
+      const teacherTwo = Object.create(person);
+      teacherTwo.setName("Ema Harris");
+      teacherTwo.teach("Algorithms");
+
+      class NewPerson {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+
+        greeting() {
+          console.log(
+            "Greetings, my name is " +
+              this.name +
+              " and I am " +
+              this.age +
+              " years old"
+          );
+        }
+
+        salute() {
+          console.log(
+            "Good morning!, and in case I dont see you, good afternoon, good evening and good night!"
+          );
+        }
+      }
+
+      class Student extends Person {
+        constructor(name, age, major) {
+          super(name, age);
+          this.major = major;
+        }
+
+        greeting() {
+          console.log(
+            "Hey, my name is " + this.name + " and I am studying " + this.major
+          );
+        }
+      }
+
+      class Professor extends Person {
+        constructor(name, age, department) {
+          super(name, age);
+          this.department = department;
+        }
+
+        salute() {
+          console.log(
+            "Good day, my name is " +
+              this.name +
+              " and I am in the " +
+              this.department +
+              " department."
+          );
+        }
+      }
+
+      const personObj = new NewPerson("George", 36);
+      const studentObj = new Student("Amy", 27, "Computer Science");
+      const proffessorObj = new Professor("Peter", 45, "Computer Science");
+
+      console.log(
+        "Printing the Person object with constructor ... "
+      );
+      personObj.greeting();
+      personObj.salute();
+
+      console.log(
+        "Printing the Student object with constructor ... "
+      );
+      studentObj.greeting();
+
+      console.log(
+        "Printing the Professor object with constructor... "
+      );
+      proffessorObj.salute();
+      // --- Exercise 3 end ---
+
+      // --- Exercise 4 start ---
+      const secondPerson = {
+        setName: function (name) {
+          this.name = name;
+        },
+        setAge: function (age) {
+          this.age = age;
+        },
+        greeting: function () {
+          console.log(
+            "Greetings, my name is " +
+              this.name +
+              " and I am " +
+              this.age +
+              " years old"
+          );
+        },
+        salute: function () {
+          console.log(
+            "Good morning!, and in case I dont see you, good afternoon, good evening and good night!"
+          );
+        },
+      };
+
+      const secondStudent = {
+        __proto__: secondPerson,
+        setMajor: function (major) {
+          this.major = major;
+        },
+        greeting: function () {
+          console.log(
+            "Hey, my name is " + this.name + " and I am studying " + this.major
+          );
+        },
+      };
+
+      const secondProfessor = {
+        __proto__: secondPerson,
+        setDepartment: function (department) {
+          this.department = department;
+        },
+        salute: function () {
+          console.log(
+            "Good day, my name is " +
+              this.name +
+              " and I am in the " +
+              this.department +
+              " department."
+          );
+        },
+      };
+      console.log(
+        "Printing the secondPerson object with no constructor ... "
+      );
+      const person2 = Object.create(secondPerson);
+      person2.setName("Samson Peter");
+      person2.setAge(20);
+      person2.greeting();
+      person2.salute();
+
+      console.log(
+        "Printing the secondStudent object with no constructor ... "
+      );
+      student2 = Object.create(secondStudent);
+      student2.setName("Amy Paulos");
+      student2.setAge(22);
+      student2.setMajor("CyberSecurity");
+      student2.greeting();
+
+      console.log(
+        "Printing the  secondProfessor object with no constructor ... "
+      );
+      professor2 = Object.create(secondProfessor);
+      professor2.setName("Gerald Harris");
+      professor2.setAge(68);
+      professor2.setDepartment("Economics");
+      professor2.salute();
+      // --- Exercise 4 end ---
+    </script>
+  </head>
+
+  <body>
+    <a href="https://MilkaElias.github.io">Back to home</a>
+    <p>
+      Look in the Chrome developer console to see the output. CTRL_SHIFT_J
+      <br />
+      Or on Firefox with CTRL_SHIFT_K
+    </p>
+  </body>
+</html>
